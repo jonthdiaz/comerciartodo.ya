@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -23,6 +23,7 @@ SECRET_KEY = 'kon9aaio=b+_%6ua^8k4%jvgnyqbd7u)aho7*1yy*oz9zv_q7g'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -36,6 +37,15 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    #apps
+    'profiles',
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,13 +63,24 @@ ROOT_URLCONF = 'tradeall.urls'
 WSGI_APPLICATION = 'tradeall.wsgi.application'
 
 
+#TEMPLATE DIRS
+
+TEMPLATE_DIRS = (
+    os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2]+['templates']),
+)
+
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tradeall_db',
+        'USER': 'tradeall_admin',
+        'PASSWORD': 'tradeall',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
