@@ -1,0 +1,25 @@
+{
+  "name": "tradeall",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jonthdiaz/comerciartodo.ya",
+  "authors": [
+    "jonathan diaz <jonthdiaz@gmail.com>"
+  ],
+  "description": "App para comercializar articulos",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "backbone": "~1.1.2",
+    "requirejs": "~2.1.15"
+  }
+}
